@@ -1,0 +1,2 @@
+# stochasticmodellingcourserwork
+Stochastic Modelling Coursework 2024
