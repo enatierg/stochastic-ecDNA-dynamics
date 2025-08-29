@@ -1,6 +1,6 @@
 # Modelling ecDNA Dynamics in Dividing Cell Populations
 
-This project was developed as part of the **Stochastic Modelling Coursework (2024)** during my MMath at the University of Bath.  
+This project was developed as part of the **Stochastic Modelling Coursework** during my MMath.  
 
 It models the dynamics of **extra-chromosomal circular DNA (ecDNA)** in a population of dividing cells. The goal is to understand how ecDNA is inherited, diluted, or lost through stochastic partitioning during cell division, and how this shapes the long-term behaviour of the cell population.
 
@@ -27,22 +27,5 @@ Together, these equations capture the stochastic inheritance of ecDNA, balancing
 - **Mathematical Modelling:** Differential equations derived to represent stochastic partitioning of ecDNA.  
 - **Biological Relevance:** Provides a framework for understanding how ecDNA dynamics evolve in cancer and other biological contexts.  
 - **Coursework Focus:** This project emphasised the use of stochastic models to bridge probability, biology, and applied mathematics.  
+ 
 
----
-
-## Files
-- `model_equations.py` – implementation of the differential equations.  
-- `simulation.ipynb` – Jupyter notebook with derivations, simulation experiments, and visualisations.  
-- `report.pdf` – coursework write-up with full details.  
-
----
-
-## Requirements
-- Python 3.8+  
-- NumPy  
-- SciPy  
-- Matplotlib  
-
-Install all dependencies with:
-```bash
-pip install -r requirements.txt
