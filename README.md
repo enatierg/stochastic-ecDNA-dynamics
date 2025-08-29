@@ -1,13 +1,48 @@
-# stochasticmodellingcoursework
-Stochastic Modelling Coursework 2024
+# Modelling ecDNA Dynamics in Dividing Cell Populations
 
-This project models the dynamics of extra-chromosomal circular DNA, or ecDNA, in a population of dividing cells. In this model, we denote by Nk the number of cells that contain k copies of ecDNA, where k is a non-negative integer.
+This project was developed as part of the **Stochastic Modelling Coursework (2024)** during my MMath at the University of Bath.  
 
-The model is governed by two key differential equations:
+It models the dynamics of **extra-chromosomal circular DNA (ecDNA)** in a population of dividing cells. The goal is to understand how ecDNA is inherited, diluted, or lost through stochastic partitioning during cell division, and how this shapes the long-term behaviour of the cell population.
 
-The first equation describes the rate of change in the number of cells that have zero copies of ecDNA. This rate increases in two ways: first, due to natural cell division of cells that already have no ecDNA, which we assume happens at a constant rate of one; and second, due to cells that previously had ecDNA but lost all copies during cell division. The latter process is modelled using a probability factor that accounts for the chance that all ecDNA copies go to just one daughter cell during division. Since each dividing cell produces two daughter cells at a certain division rate, the equation includes a factor of two times the division rate.
+---
 
-The second equation describes the rate of change in the number of cells with a non-zero number of ecDNA copies. This rate decreases due to the division of cells with exactly k copies, as these cells are being replaced. It also increases due to other cells that divide and generate daughter cells with exactly k copies of ecDNA. The increase is calculated by summing over all parent cells that have enough ecDNA to produce such a daughter cell, specifically, cells with at least k divided by two copies. For each possible number of ecDNA copies in a parent cell, the equation considers both the number of ways that k copies can be distributed among the total available copies, and the probability of that particular distribution occurring.
+## Model Overview
 
-Together, these equations capture how ecDNA is inherited or lost through stochastic partitioning during cell division, providing insight into how ecDNA dynamics evolve over time in a growing cell population.
+We let **Nk** denote the number of cells that contain *k* copies of ecDNA, where *k* is a non-negative integer. The system evolves according to two coupled differential equations:
 
+1. **Cells with zero ecDNA copies (N₀):**  
+   - Increase due to the natural division of cells already lacking ecDNA (assumed to occur at a constant rate of one).  
+   - Increase when cells with ecDNA lose all copies during division. This is captured by a probability factor that accounts for all ecDNA copies going to a single daughter cell.  
+
+2. **Cells with k > 0 ecDNA copies (Nk):**  
+   - Decrease as these cells divide and are replaced.  
+   - Increase due to daughter cells produced during division of other parent cells.  
+     - This involves summing over all possible parent cells with sufficiently many ecDNA copies (at least *k/2*), and weighting by both the combinatorial number of ways *k* copies can be partitioned and the probability of that distribution occurring.  
+
+Together, these equations capture the stochastic inheritance of ecDNA, balancing loss and propagation across generations of dividing cells.
+
+---
+
+## Key Features
+- **Mathematical Modelling:** Differential equations derived to represent stochastic partitioning of ecDNA.  
+- **Biological Relevance:** Provides a framework for understanding how ecDNA dynamics evolve in cancer and other biological contexts.  
+- **Coursework Focus:** This project emphasised the use of stochastic models to bridge probability, biology, and applied mathematics.  
+
+---
+
+## Files
+- `model_equations.py` – implementation of the differential equations.  
+- `simulation.ipynb` – Jupyter notebook with derivations, simulation experiments, and visualisations.  
+- `report.pdf` – coursework write-up with full details.  
+
+---
+
+## Requirements
+- Python 3.8+  
+- NumPy  
+- SciPy  
+- Matplotlib  
+
+Install all dependencies with:
+```bash
+pip install -r requirements.txt
